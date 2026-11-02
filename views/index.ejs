@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note App</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Notes</h1>
+
+    <% if (error) { %>
+        <p style="color: red"><%= error %></p>
+    <% } %>
+
+    <form action="/notes" method="POST">
+        <input name="text">
+        <button>Add</button>
+    </form>
+
+    <% for (let i = 0; i < notes.length; i++) { %>
+        <% const note = notes[i] %>
+
+        <form action="/notes/<%= note.id %>/delete" method="POST" class="<%= note.pinned ? 'pinned' : '' %>">
+            <%= i + 1 %>. <%= note.text %> <button>X</button> <button formaction="/notes/<%= note.id %>/pin">📌</button>
+        </form>
+    <% } %>
+</body>
+</html>

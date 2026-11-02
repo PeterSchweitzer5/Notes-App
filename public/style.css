@@ -1,0 +1,16 @@
+body {
+    font-family: Arial;
+    margin: 50px auto;
+    text-align: center;
+}
+
+button {
+    background: blue;
+    color: white;
+}
+
+.pinned {
+    background-color: yellow;
+    width: fit-content;
+    margin: auto;
+}
